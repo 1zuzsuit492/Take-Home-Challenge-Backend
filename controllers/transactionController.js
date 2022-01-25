@@ -2,41 +2,44 @@ const express = require("express");
 
 const transaction = express.Router();
 
-const transactions = require("../models/transactons.js");
+const transactionsArr = require("../models/transactions");
 
 transaction.get("/",(_,response) =>{
-    response.json(transactions) //an object containing info about the thing being created
+    response.json(transactionsArr) //an object containing info about the thing being created
 })
 
 transaction.put("/:id", (request, response)=>{
-    transactions[request.params.id] = request.body;
+    transactionsArr[request.params.id] = request.body;
      //gives us access to our given id setting it equal to new input
-    response.status(200).json(transactions[request.params.id]);
+    response.status(200).json(transactionsArr[request.params.id]);
 });
 
 transaction.get("/:id", (request, response) => {
     const {id} = request.params;
-    if(transactions[id]){
-        response.json(transactions[id]);
-    }else{
+    if (transactionsArr[id]){
+        response.json(transactionsArr[id]);
+    }
+    else {
         response.redirect("*")
     }
 })
 
 transaction.post("/",(request, response) => {
-    transactions.push(request.body);
-    response.json(transactions[transactions.length-1]);
+    transactionsArr.push(request.body);
+    response.json(transactionsArr[transactionsArr.length - 1]);
 })
 
 
 transaction.delete("/:id", (request, response) => {
     const {id} = request.params;
-    if(transactions[id]){
-    transactions.splice(id, 1)
-    response.status(200).json(transactions)
-    }else{
+    if (transactionsArr[id]) {
+    transactionsArr.splice(id, 1)
+    response.status(200).json(transactionsArr)
+    }
+    else {
       response.status(404).json({error: "Not Found"});
     }
 })
 
 module.exports = transaction;
+
