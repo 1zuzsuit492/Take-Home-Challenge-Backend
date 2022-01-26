@@ -10,7 +10,9 @@
   "name": "budget-backend",
   "version": "1.0.0",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/1zuzsuit492/budget-app-backend.git"
