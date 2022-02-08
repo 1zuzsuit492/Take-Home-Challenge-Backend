@@ -1,4 +1,4 @@
-module.exports = [
+const transactions  = [
     {
       date: "2022-04-01",
       name: "Payday",
@@ -70,3 +70,5 @@ module.exports = [
       amount: -7,
     },
   ];
+
+  module.exports = transactions;

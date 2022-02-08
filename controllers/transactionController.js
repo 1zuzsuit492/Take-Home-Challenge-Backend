@@ -7,22 +7,24 @@ const transactionsArr = require("../models/transactions");
 transaction.get("/",(_,response) =>{
     response.json(transactionsArr) //an object containing info about the thing being created
 })
-
-transaction.put("/:id", (request, response)=>{
-    transactionsArr[request.params.id] = request.body;
-     //gives us access to our given id setting it equal to new input
-    response.status(200).json(transactionsArr[request.params.id]);
-});
-
-transaction.get("/:id", (request, response) => {
-    const {id} = request.params;
-    if (transactionsArr[id]){
-        response.json(transactionsArr[id]);
+transaction.get("/:index", (request, response) => {
+    const {index} = request.params;
+    if (transactionsArr[index]){
+        console.log(transactionsArr[index]);
+        response.json(transactionsArr[index]);
     }
     else {
         response.redirect("*")
     }
-})
+}) //pulling info from specific index
+
+transaction.put("/:index", (request, response)=>{
+    transactionsArr[request.params.index] = request.body;
+     //gives us access to our given index setting it equal to new input
+    response.status(200).json(transactionsArr[request.params.index]);
+});
+
+
 
 transaction.post("/",(request, response) => {
     transactionsArr.push(request.body);
@@ -30,10 +32,10 @@ transaction.post("/",(request, response) => {
 })
 
 
-transaction.delete("/:id", (request, response) => {
-    const {id} = request.params;
-    if (transactionsArr[id]) {
-    transactionsArr.splice(id, 1)
+transaction.delete("/:index", (request, response) => {
+    const {index} = request.params;
+    if (transactionsArr[index]) {
+    transactionsArr.splice(index, 1)
     response.status(200).json(transactionsArr)
     }
     else {
