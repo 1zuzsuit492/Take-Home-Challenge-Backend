@@ -1,6 +1,8 @@
 const express = require("express");
-const transactionController = require("./controllers/transactionController");
-const transactions = require("./models/transactions");
+const eventsController = require("./controllers/eventsController");
+const groupsController = require("./controllers/groupsController");
+const usersController = require("./controllers/usersController");
+
 
 //create express app
 const app = express();
@@ -10,15 +12,16 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-// Delegate everything that starts with `/transactions` to the transactions controller.
 // .use takes in two arguments:
 // - the sub-route for the controller to handle
 // - the controller that should handle it
-app.use("/transactions", transactionController);
+app.use('/groups', groupsController);
+app.use('/events', eventsController);
+app.use('/user', usersController);
 
 //the home route
 app.get("/", (request, response) => {
-    response.send("Welcome to the Budget App!");
+    response.send("Welcome to Study Buddies!");
 });
 
 

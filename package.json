@@ -1,19 +1,20 @@
 {
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^14.2.0",
-    "express": "^4.17.2"
+    "dotenv": "^14.3.2",
+    "express": "^4.18.1",
+    "pg-promise": "^10.11.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "db:init": "psql postgres -f db/schema.sql", 
+    "db:seed": "psql postgres -f db/seed.sql"
   },
-
   "engines": {
     "node": "17.3.0"
   },
-
   "name": "budget-backend",
   "version": "1.0.0",
   "main": "app.js",
