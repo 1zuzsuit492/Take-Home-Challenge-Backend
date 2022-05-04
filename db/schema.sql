@@ -25,12 +25,12 @@ CREATE TABLE events (
     cancelled BOOLEAN DEFAULT false,
 );
 
-DROP TABLE IF EXISTS users
-CREATE TABLE users (
-    userid SERIAL PRIMARY KEY
-    username TEXT NOT NULL,
-    first_name TEXT,
-    last_name TEXT,
-    password TEXT NOT NULL,
-    email TEXT NOT NULL UNIQUE,
-);
+-- DROP TABLE IF EXISTS users
+-- CREATE TABLE users (
+--     userid SERIAL PRIMARY KEY
+--     username TEXT NOT NULL,
+--     first_name TEXT,
+--     last_name TEXT,
+--     password TEXT NOT NULL,
+--     email TEXT NOT NULL UNIQUE,
+-- );
