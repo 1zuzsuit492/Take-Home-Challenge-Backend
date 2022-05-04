@@ -19,4 +19,6 @@ The challenge is to create a backend that consists two tables, where one table h
 
 
 
-deployment link -->
+deployment link --> https://take-home-challenge-ml.herokuapp.com/
+
+[still having issues, will reach out during office hours[
